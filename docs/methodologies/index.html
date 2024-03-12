@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Training Methodologies</title>
+  <meta name="description" content="Leture of Paper.">
+
+
+  <link rel="stylesheet" href="/llmmodels/css/tufte.css">	
+  
+
+  <!-- Google Fonts loaded here depending on setting in _data/options.yml true loads font, blank does not-->
+  
+    <link href='//fonts.googleapis.com/css?family=Lato:400,400italic' rel='stylesheet' type='text/css'>
+  
+  <!-- Load up MathJax script if needed ... specify in /_data/options.yml file-->
+  
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-129020129-1', 'auto');
+  ga('send', 'pageview');
+
+  </script>
+
+  <link rel="canonical" href="http://localhost:4000/llmmodels/methodologies/">
+  <link rel="alternate" type="application/rss+xml" title="Deep Generative Models" href="http://localhost:4000/llmmodels/feed.xml" />
+</head>
+
+  <body>
+    <!--- Header and nav template site-wide -->
+<header>
+    <nav class="group">
+        <a href="/llmmodels/">Contents</a>
+	<a href="https://github.com/harsha-jampana">Github</a>
+	</nav>
+</header>
+
+    <article class="group">
+      <h1>Training methodologies</h1>
+<p class="subtitle"></p>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: {
+      Macros: {
+        e: "\\epsilon",
+        xti: "x^{(i)}",
+        yti: "y^{(i)}",
+        bfy: "{\\bf y}",
+        bfx: "{\\bf x}",
+        bfg: "{\\bf g}",
+        bfbeta: "{\\bf \\beta}",
+        tp: "\\tilde p",
+        pt: "p_\\theta",
+        Exp: "{\\mathbb{E}}",
+        Ind: "{\\mathbb{I}}",
+        KL: "{\\mathbb{KL}}",
+        Dc: "{\\mathcal{D}}",
+        Tc: "{\\mathcal{T}}",
+        Xc: "{\\mathcal{X}}",
+        note: ["\\textcolor{blue}{[NOTE: #1]}",1]
+      }
+    }
+  });
+</script>
+
+
+<p><img src="Training-Methodologies.jpg" alt="drawing" width="400" class="center" /></p>
+
+<p>From collecting and organizing data to adjusting the model, we’ll cover the key steps in training LLMs. This involves understanding the intricacies of data preprocessing, selecting the right model architecture, and employing techniques for efficient training.</p>
+
+<p>Whether you’re a new researcher, an experienced developer, or someone keen on diving into the world of LLMs, this guide will not only offer a clear path to training a language model but also insights into best practices and common pitfalls to avoid.</p>
+
+<h3 id="pre-training-on-massive-datasets">Pre-training on Massive Datasets:</h3>
+<hr />
+
+<p>An essential stage in training large language models is pre-training, during which the model is taught using vast datasets filled with substantial amounts of unlabeled textual data. These datasets often come from a wide array of sources, including books, articles, websites, and more. Through pre-training, the model encounters various linguistic patterns and situations, bolstering its capacity to comprehend and produce text that resembles human language.</p>
+
+<p>The primary goal of this pre-training is a process called masked language modeling. Here, the model learns to deduce missing words or tokens from the context provided. This method of teaching the model to complete sentences ensures it grasps the nuanced relationships and structures within the language. The sheer volume of data used for pre-training offers notable benefits. First, the model learns a diverse set of language behaviors, from the everyday to the more unusual. Additionally, the vastness of the data equips the model with a wide-ranging knowledge, enabling it to operate effectively across various tasks and fields.</p>
+
+<h3 id="transfer-learning-and-fine-tuning">Transfer Learning and Fine-tuning:</h3>
+
+<p>Transfer learning and fine-tuning play critical roles in the training process of large language models. Once the pre-training phase is complete, the model undergoes fine-tuning using specific labeled data related to the task at hand, benefiting from the foundational knowledge obtained during pre-training.</p>
+
+<p>Transfer learning involves leveraging the insights gained during pre-training and applying them to a specific task. By starting with the pre-trained model’s weights, the model already has a strong understanding of language, giving it a significant advantage when learning the specifics of a new task.</p>
+
+<p>On the other hand, fine-tuning adjusts the pre-trained model’s parameters using optimization strategies, such as stochastic gradient descent, and task-specific labeled data. This procedure tailors the model’s learned behaviors to better suit the specific task it will address. The advantage of fine-tuning is that it reduces the amount of labeled data needed for each task, saving both computational resources and costs.</p>
+
+<p>In sum, the synergy of transfer learning and fine-tuning ensures the model can apply its broad linguistic foundation to specific tasks while refining its approach for optimal performance.</p>
+
+<h3 id="dataset-bias-and-mitigation">Dataset Bias and Mitigation:</h3>
+
+<p>Handling bias in datasets is a major concern when training large language models. Bias in the data can result in skewed predictions and can reinforce existing societal prejudices. Thus, reducing dataset bias during training is essential.</p>
+
+<p>Selecting and preparing the training data carefully is key to spotting and managing biases. Filtering methods can be used to balance or remove biased data, ensuring a more neutral dataset. It’s also important to pull data from diverse sources to capture a variety of viewpoints and reduce bias.</p>
+
+<p>Certain techniques can be applied during training to lessen bias. These methods adjust the training process to make the model less sensitive to certain biases. For example, adversarial training helps the model produce results that are less affected by biased data.</p>
+
+<p>Regularly checking the model’s outputs is crucial to find and correct any biases. Ongoing oversight and adjustments to the training process help ensure large language models work fairly and responsibly.</p>
+
+<h3 id="hardware-and-computational-requirements">Hardware and Computational Requirements:</h3>
+
+<p>Training large language models requires significant computational power and hardware resources due to the vast data involved, the model’s magnitude, and intricate design.</p>
+
+<p>Distributed computing is commonly used during the training phase, where multiple GPUs or even groups of GPUs work together for parallel processing. This not only speeds up training but also ensures effective memory use. For heightened performance and efficiency in training, specific hardware like Tensor Processing Units (TPUs) or Application-Specific Integrated Circuits (ASICs) can be utilized.</p>
+
+<p>The computing needs for training these large models are immense. Training durations can span from several days to weeks, contingent on the model’s scale and the resources at hand. Given the complexity, many opt for cloud computing solutions or high-performance computing clusters to fulfill the computational demands.</p>
+
+<p>While the need for such heavy computational and hardware resources can pose accessibility and cost challenges, there are ongoing efforts to make the process more efficient. Research into methods like model distillation aims to simplify the knowledge of vast models into smaller, more resource-friendly ones.</p>
+
+
+
+    </article>
+    <span class="print-footer">Training Methodologies - Mounika Jampana</span>
+    <footer>
+  <hr class="slender">
+  <!-- <ul class="footer&#45;links"> -->
+  <!--   <li><a href="mailto:hate@spam.net"><span class="icon&#45;mail"></span></a></li>     -->
+  <!--    -->
+  <!--     <li> -->
+  <!--       <a href="//www.twitter.com/twitter_handle"><span class="icon-twitter"></span></a> -->
+  <!--     </li> -->
+  <!--    -->
+  <!--     <li> -->
+  <!--       <a href="//plus.google.com/+googlePlusName"><span class="icon-googleplus"></span></a> -->
+  <!--     </li> -->
+  <!--    -->
+  <!--     <li> -->
+  <!--       <a href="//github.com/GithubHandle"><span class="icon-github"></span></a> -->
+  <!--     </li> -->
+  <!--    -->
+  <!--     <li> -->
+  <!--       <a href="//www.flickr.com/photos/FlickrUserID"><span class="icon-flickr"></span></a> -->
+  <!--     </li> -->
+  <!--    -->
+  <!--     <li> -->
+  <!--       <a href="/feed"><span class="icon-feed"></span></a> -->
+  <!--     </li> -->
+  <!--      -->
+  <!-- </ul> -->
+<div class="credits">
+<!-- <span>&#38;copy; 2024 <!&#45;&#45; &#38;#38;nbsp;&#38;#38;nbsp;MOUNIKA JAMPANA &#45;&#45;></span></br> <br> -->
+<span>Site created with <a href="//jekyllrb.com">Jekyll</a> using the <a href="//github.com/clayh53/tufte-jekyll">Tufte theme</a>. &copy; 2024</span> 
+</div>  
+</footer>
+
+  </body>
+</html>
