@@ -1,7 +1,8 @@
 baseurl: /llmmodels
 title: Deep Generative Models
 subtitle: Lecture notes
-author: Mounika Jampana
+author: sudheer ramanaboina
+theme: jekyll-theme-minimal
 simple_search: http://google.com/search
 description: Leture of Paper.
 name: notes
